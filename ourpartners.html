@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted by Industry Leaders</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f3f4f6;
+        }
+
+        .trusted-section {
+            background: #f3f4f6;
+            padding: 60px 20px 50px;
+            text-align: center;
+        }
+
+        .trusted-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 40px;
+        }
+
+        .logo-row {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 36px;
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .logo-row img {
+            max-height: 45px;
+            max-width: 100%;
+            object-fit: contain;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: 0.3s ease;
+        }
+
+        .logo-row img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* Carousel styles for mobile */
+        @media (max-width: 768px) {
+            .trusted-section {
+                padding: 32px 5px 24px;
+            }
+            .trusted-section h2 {
+                font-size: 19px;
+                margin-bottom: 22px;
+            }
+            .logo-row {
+                display: flex;
+                overflow-x: auto;
+                gap: 18px;
+                padding: 0 3px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .logo-row::-webkit-scrollbar {
+                display: none;
+            }
+            .logo-row img {
+                flex: 0 0 auto;
+                max-height: 28px;
+                padding: 0 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trusted-section {
+                padding: 18px 1px 13px;
+            }
+            .trusted-section h2 {
+                font-size: 15px;
+                margin-bottom: 14px;
+            }
+            .logo-row img {
+                max-height: 22px;
+                padding: 0 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="trusted-section">
+        <h2>Trusted by Industry Leaders</h2>
+
+        <div class="logo-row" id="logo-carousel">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 1">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 2">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 3">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 4">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 5">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 6">
+            <img src="https://image2url.com/r2/default/images/1771934279795-8a2b8204-a066-46f5-be35-6bec054e0ff7.png" alt="Logo 7">
+        </div>
+
+    </section>
+
+    <!-- Optional: Simple auto-scroll for the carousel on mobile devices -->
+    <script>
+        // Only activate auto-scroll on mobile (<= 768px)
+        if (window.innerWidth <= 768) {
+            const carousel = document.getElementById('logo-carousel');
+            let scrollAmount = 0;
+            let autoScroll;
+
+            function startCarousel() {
+                autoScroll = setInterval(() => {
+                    if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 2) {
+                        carousel.scrollTo({ left: 0, behavior: "smooth" });
+                        scrollAmount = 0;
+                    } else {
+                        scrollAmount += 60;
+                        carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
+                    }
+                }, 1600);
+            }
+
+            function stopCarousel() {
+                clearInterval(autoScroll);
+            }
+
+            carousel.addEventListener('mouseenter', stopCarousel);
+            carousel.addEventListener('mouseleave', startCarousel);
+
+            startCarousel();
+        }
+    </script>
+
+</body>
+
+</html>
